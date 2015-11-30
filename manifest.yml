@@ -1,0 +1,1 @@
+applications: - name: fundManagmentApi url: fundManagmentApi${random-word}.${target-base} command: node app.js
