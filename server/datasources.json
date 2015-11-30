@@ -2,5 +2,20 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "InvestorAccounts": {
+    "name": "InvestorAccounts",
+    "connector": "rest",
+    "operations": [
+      {
+        "template": {
+          "method": "GET",
+          "url": "http://chtest.eu-gb.mybluemix.net/api/InvestorAccounts"
+        },
+        "functions": {
+          "find": []
+        }
+      }
+    ]
   }
 }

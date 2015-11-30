@@ -1,0 +1,8 @@
+applications:
+- disk_quota: 1024M
+  host: started-nodejs
+  name: Started NodeJs
+  path: .
+  domain: eu-gb.mybluemix.net
+  instances: 1
+  memory: 256M
