@@ -1,1 +1,9 @@
-applications: - name: fundManagmentApi url: fundManagmentApi${random-word}.${target-base} command: node app.js
+applications:
+- path: .
+  memory: 236M
+  instances: 1
+  domain: eu-gb.mybluemix.net
+  name: fundManagmentApi
+  host: fundManagmentApi
+  command: node .
+  disk_quota: 1024M

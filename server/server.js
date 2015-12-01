@@ -5,7 +5,7 @@ var app = module.exports = loopback();
 
 app.start = function() {
   // start the web server
-  return app.listen(function() {
+  return app.listen(process.env.PORT || 3000, function() {
     app.emit('started');
     var baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
@@ -20,6 +20,14 @@ app.start = function() {
 // Sub-apps like REST API are mounted via boot scripts.
 boot(app, __dirname, function(err) {
   if (err) throw err;
+
+
+  //Use Bluemix host and port ...
+  // var host = process.env.VCAP_APP_HOST || 'localhost';
+  // var port = process.env.VCAP_APP_PORT || 1337;
+  //
+  // app.set('host', host);
+  // app.set('port', port);
 
   // start the server if `$ node server.js`
   if (require.main === module)
