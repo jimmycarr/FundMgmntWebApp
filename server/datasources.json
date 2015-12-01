@@ -6,16 +6,85 @@
   "InvestorAccounts": {
     "name": "InvestorAccounts",
     "connector": "rest",
+    "headers": {
+  "accept": "application/json",
+  "content-type": "application/json"
+},
     "operations": [
+
       {
         "template": {
           "method": "GET",
-          "url": "http://chtest.eu-gb.mybluemix.net/api/InvestorAccounts"
+          "url": "http://chtest.eu-gb.mybluemix.net/api/InvestorAccounts/{investorAccountId}"
         },
         "functions": {
-          "find": []
+          "getInvestorAccounts": ["investorAccountId"]
         }
-      }
+      },
+
+      {
+        "template": {
+          "method": "POST",
+          "url": "http://chtest.eu-gb.mybluemix.net/api/Payments",
+
+        "body": {
+            "amount": "{amount}",
+            "transactionType": "{transactionType}",
+            "currency": "{currency}",
+            "date": "{theDate}"
+          }
+        },
+
+        "functions": {
+            "makePayment": ["amount", "transactionType", "currency", "theDate"]
+        }
+      },
+
+      {
+        "template": {
+          "method": "PUT",
+          "url": "http://chtest.eu-gb.mybluemix.net/api/TradingAccounts/{tradingAccountId}",
+
+        "body": {
+            "balance": "{balance}",
+            "tradingAccountId": "{tradingAccountId}",
+            "investorAccountId": "{investorAccountId}"
+          }
+        },
+
+        "functions": {
+            "updateTradingAccount": ["balance", "tradingAccountId", "investorAccountId"]
+        }
+      },
+
+      {
+        "template": {
+          "method": "POST",
+          "url": "http://chtest.eu-gb.mybluemix.net/api/Orders",
+
+        "body": {
+            "fundName": "{fundName}",
+            "units": "{units}"
+          }
+        },
+
+        "functions": {
+            "postOrder": ["fundName", "units"]
+        }
+      },
+
+      {
+        "template": {
+          "method": "GET",
+          "url": "http://chtest.eu-gb.mybluemix.net/api/TradingAccounts/{tradingAccountid}"
+        },
+
+        "functions": {
+            "getTradingAccountBalance": ["tradingAccountid"]
+        }
+        }
+
+
     ]
   }
 }
