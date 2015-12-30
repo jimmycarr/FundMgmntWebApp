@@ -30,7 +30,7 @@ angular
       function($scope, AuthService, $state) {
     AuthService.logout()
       .then(function() {
-        $state.go('logout-success');
+        $state.go('logout-out-success');
       });
   }])
   .controller('SignUpController', ['$scope', 'AuthService', '$state',

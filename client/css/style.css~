@@ -65,9 +65,12 @@ body > header nav {
 	background:#0090FF;
 	width:100%;
 	text-align:right;
+	display:inline-block;
+	vertical-align:bottom;
 }
 body > header nav li {
   display:inline-block;
+	vertical-align:bottom;
   padding-bottom:.5rem;
 }
 body > header nav li a {

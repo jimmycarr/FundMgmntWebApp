@@ -1,0 +1,16 @@
+<section>
+  <article ng-repeat="a in accounts.slice().reverse()">
+    <header>
+      <h1>{{a.id | id}} | {{a.account.funds}}</h1>
+      <h2>{{a.account.email}}</h2>
+    </header>
+
+    <p>{{r.rating}}&#9733; - {{r.comments}}</p>
+
+    <div class="actions" ng-show="currentUser">
+      <button ui-sref="invest-funds({ id: a.id })">Invest Funds</button>
+      <button a ui-sref="add-funds({ id: a.id })">Add Funds</button>
+			<button a ui-sref="withdraw-funds({ id: a.id })">Withdraw Funds</button>
+    </div>
+  </article>
+</section>

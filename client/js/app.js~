@@ -54,10 +54,6 @@ angular
         url: '/logout',
         controller: 'AuthLogoutController'
       })
-      .state('logout-success', {
-        url: '/logout/success',
-        templateUrl: 'views/logout-success.html'
-      })
       //Forbidden - Must be logged in
       .state('forbidden', {
         url: '/forbidden',
