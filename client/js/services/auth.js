@@ -3,25 +3,29 @@ angular
   .factory('AuthService', ['Reviewer', '$q', '$rootScope', function(User, $q,
       $rootScope) {
     function login(email, password) {
-      return User
-        .login({email: email, password: password})
-        .$promise
-        .then(function(response) {
-          $rootScope.currentUser = {
-            id: response.user.id,
-            tokenId: response.id,
-            email: email
-          };
-        });
+      return Customer
+              .login($scope.customer)
+              .$promise
+              .then(function(response) {
+                console.log("RESPONSE IN AUTH JS");
+                $rootScope.id = response.id;
+                console.log("Token in root scope is " + $rootScope.id);
+                $state.go('my-accounts');
+              }).catch (function(err){
+                      console.log("Error Caught " + JSON.stringify(err));
+              });
     }
 
     function logout() {
-      return User
-       .logout()
-       .$promise
-       .then(function() {
-         $rootScope.currentUser = null;
-       });
+      return Customer
+              .logout($scope.customer)
+              .$promise
+              .then(function(response) {
+                console.log("USER LOGGED OUT");
+                $state.go('login');
+              }).catch (function(err){
+                      console.log("Error Caught " + JSON.stringify(err));
+              });
     }
 
     function register(email, password) {
