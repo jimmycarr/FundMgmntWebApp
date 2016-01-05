@@ -22,13 +22,13 @@ angular
       .state('my-accounts', {
         url: '/my-accounts',
         templateUrl: 'views/my-accounts.html',
-        //controller: 'AllReviewsController'
+        controller: 'MainMenuController'
         //authenticate: true
       })
       .state('invest-funds', {
         url: '/invest-funds/:id',
         templateUrl: 'views/invest-funds.html',
-        //controller: 'EditReviewController',
+        controller: 'PlaceOrderCtrl',
         //authenticate: true
       })
       
